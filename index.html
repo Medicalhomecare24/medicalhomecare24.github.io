@@ -544,19 +544,24 @@
                     <p>Layanan infus oleh tenaga medis profesional.</p>
                 </div>
                 <div class="card hidden">
+                    <div class="icon"><ion-icon name="medical-outline"></ion-icon></div>
+                    <h3>Suntik Vitamin</h3>
+                    <p>Suntikan vitamin untuk meningkatkan daya tahan tubuh.</p>
+                </div>
+                <div class="card hidden">
                     <div class="icon"><ion-icon name="bandage-outline"></ion-icon></div>
                     <h3>Perawatan Luka</h3>
                     <p>Penanganan luka ringan hingga pasca operasi.</p>
                 </div>
                 <div class="card hidden">
+                    <div class="icon"><ion-icon name="accessibility-outline"></ion-icon></div>
+                    <h3>Perawatan Lansia</h3>
+                    <p>Pendampingan aktivitas harian dan kesehatan lansia.</p>
+                </div>
+                <div class="card hidden">
                     <div class="icon"><ion-icon name="happy-outline"></ion-icon></div>
                     <h3>Perawatan Bayi</h3>
                     <p>Pelayanan dan pendampingan kesehatan untuk bayi baru lahir.</p>
-                </div>
-                <div class="card hidden">
-                    <div class="icon"><ion-icon name="heart-outline"></ion-icon></div>
-                    <h3>Perawatan Lansia</h3>
-                    <p>Pendampingan aktivitas harian dan kesehatan lansia.</p>
                 </div>
             </div>
         </section>
@@ -603,110 +608,4 @@
                     <form>
                         <input type="text" placeholder="Subjek" required>
                         <textarea rows="4" placeholder="Tulis pesan Anda" required></textarea>
-                        <button class="btn primary" type="submit">Kirim</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>© 2025 Medical Home Care</footer>
-    <nav class="bottom-nav">
-        <a href="#tentang" class="nav-btn">
-            <ion-icon name="home-outline"></ion-icon>
-            <span>Home</span>
-        </a>
-        <a href="#layanan" class="nav-btn">
-            <ion-icon name="medkit-outline"></ion-icon>
-            <span>Layanan</span>
-        </a>
-        <a href="#dokumentasi" class="nav-btn">
-            <ion-icon name="images-outline"></ion-icon>
-            <span>Dokumentasi</span>
-        </a>
-        <a href="#kontak" class="nav-btn">
-            <ion-icon name="call-outline"></ion-icon>
-            <span>Kontak</span>
-        </a>
-    </nav>
-    <div id="imageModal" class="modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-    <script>
-        // Toggle Menu untuk mobile
-        const toggle = document.getElementById("nav-toggle");
-        const menu = document.getElementById("nav-menu");
-        toggle.addEventListener("click", () => {
-            menu.classList.toggle("show");
-            const icon = toggle.querySelector("ion-icon");
-            icon.setAttribute("name", menu.classList.contains("show") ? "close-outline" : "menu-outline");
-        });
-        // Scroll Animation
-        const sections = document.querySelectorAll("section.hidden");
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.2
-        });
-        sections.forEach(el => observer.observe(el));
-        // Sinkronisasi bottom-nav dengan scroll
-        const navBtns = document.querySelectorAll(".bottom-nav .nav-btn");
-        const navMenuLinks = document.querySelectorAll("#nav-menu ul li a");
-        const allLinks = document.querySelectorAll('.nav-btn, .btn-scroll');
-        const sectionIds = ['tentang', 'dokumentasi', 'layanan', 'jadwal', 'kontak'];
-        function setActiveLink() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-            allLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.href.includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-            navBtns.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.href.includes(current)) {
-                    btn.classList.add('active');
-                }
-            });
-        }
-        window.addEventListener('scroll', setActiveLink);
-        // Tambahkan event listener untuk link menu desktop
-        navMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove("show");
-                toggle.querySelector("ion-icon").setAttribute("name", "menu-outline");
-            });
-        });
-        // MODAL JAVASCRIPT
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImage");
-        const closeBtn = document.querySelector(".close-modal");
-        const clickableImages = document.querySelectorAll(".album-item img");
-        clickableImages.forEach(img => {
-            img.addEventListener('click', function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-            });
-        });
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-</body>
-</html>
+                        <button class="btn primary" type="submit
